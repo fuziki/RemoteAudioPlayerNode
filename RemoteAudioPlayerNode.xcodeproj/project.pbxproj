@@ -16,6 +16,8 @@
 		523AE0C923A73270003E7B31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523AE0C723A73270003E7B31 /* LaunchScreen.storyboard */; };
 		5253868123AF421200DA494C /* RemoteAudioPlayerNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523AE0AB23A73243003E7B31 /* RemoteAudioPlayerNode.framework */; };
 		5253868223AF421200DA494C /* RemoteAudioPlayerNode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 523AE0AB23A73243003E7B31 /* RemoteAudioPlayerNode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5253868B23AF513A00DA494C /* RemoteAudioPlayerNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5253868A23AF513A00DA494C /* RemoteAudioPlayerNodeTests.swift */; };
+		5253868D23AF513A00DA494C /* RemoteAudioPlayerNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523AE0AB23A73243003E7B31 /* RemoteAudioPlayerNode.framework */; };
 		52FAC5D623AF416A00754C61 /* RemoteAudioPlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */; };
 		52FAC5D723AF416A00754C61 /* RemoteAudioDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */; };
 		52FAC5D823AF416A00754C61 /* CompressedBufferConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */; };
@@ -25,6 +27,16 @@
 		52FAC5DC23AF41AA00754C61 /* CompressedBufferConverter.swift in Headers */ = {isa = PBXBuildFile; fileRef = 52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		52FAC5DD23AF41AA00754C61 /* AudioFileStreamService.swift in Headers */ = {isa = PBXBuildFile; fileRef = 523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5253868E23AF513A00DA494C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 523AE0A223A73243003E7B31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 523AE0AA23A73243003E7B31;
+			remoteInfo = RemoteAudioPlayerNode;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5253868323AF421200DA494C /* Embed Frameworks */ = {
@@ -53,6 +65,9 @@
 		523AE0C823A73270003E7B31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		523AE0CA23A73270003E7B31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileStreamService.swift; sourceTree = "<group>"; };
+		5253868823AF513A00DA494C /* RemoteAudioPlayerNodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteAudioPlayerNodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5253868A23AF513A00DA494C /* RemoteAudioPlayerNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAudioPlayerNodeTests.swift; sourceTree = "<group>"; };
+		5253868C23AF513A00DA494C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressedBufferConverter.swift; sourceTree = "<group>"; };
 		52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAudioPlayerNode.swift; sourceTree = "<group>"; };
 		52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAudioDownloader.swift; sourceTree = "<group>"; };
@@ -74,6 +89,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5253868523AF513A00DA494C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5253868D23AF513A00DA494C /* RemoteAudioPlayerNode.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,6 +106,7 @@
 				52FAC5D523AF413900754C61 /* Sources */,
 				523AE0AD23A73243003E7B31 /* RemoteAudioPlayerNode */,
 				523AE0BB23A7326D003E7B31 /* Example */,
+				5253868923AF513A00DA494C /* RemoteAudioPlayerNodeTests */,
 				523AE0AC23A73243003E7B31 /* Products */,
 				5253867F23AF420A00DA494C /* Frameworks */,
 			);
@@ -93,6 +117,7 @@
 			children = (
 				523AE0AB23A73243003E7B31 /* RemoteAudioPlayerNode.framework */,
 				523AE0BA23A7326D003E7B31 /* Example.app */,
+				5253868823AF513A00DA494C /* RemoteAudioPlayerNodeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,13 +152,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5253868923AF513A00DA494C /* RemoteAudioPlayerNodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5253868A23AF513A00DA494C /* RemoteAudioPlayerNodeTests.swift */,
+				5253868C23AF513A00DA494C /* Info.plist */,
+			);
+			path = RemoteAudioPlayerNodeTests;
+			sourceTree = "<group>";
+		};
 		52FAC5D523AF413900754C61 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */,
-				52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */,
-				52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */,
 				523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */,
+				52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */,
+				52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -192,6 +226,24 @@
 			productReference = 523AE0BA23A7326D003E7B31 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5253868723AF513A00DA494C /* RemoteAudioPlayerNodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5253869023AF513A00DA494C /* Build configuration list for PBXNativeTarget "RemoteAudioPlayerNodeTests" */;
+			buildPhases = (
+				5253868423AF513A00DA494C /* Sources */,
+				5253868523AF513A00DA494C /* Frameworks */,
+				5253868623AF513A00DA494C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5253868F23AF513A00DA494C /* PBXTargetDependency */,
+			);
+			name = RemoteAudioPlayerNodeTests;
+			productName = RemoteAudioPlayerNodeTests;
+			productReference = 5253868823AF513A00DA494C /* RemoteAudioPlayerNodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,6 +258,9 @@
 						CreatedOnToolsVersion = 11.1;
 					};
 					523AE0B923A7326D003E7B31 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					5253868723AF513A00DA494C = {
 						CreatedOnToolsVersion = 11.1;
 					};
 				};
@@ -225,6 +280,7 @@
 			targets = (
 				523AE0AA23A73243003E7B31 /* RemoteAudioPlayerNode */,
 				523AE0B923A7326D003E7B31 /* Example */,
+				5253868723AF513A00DA494C /* RemoteAudioPlayerNodeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -244,6 +300,13 @@
 				523AE0C923A73270003E7B31 /* LaunchScreen.storyboard in Resources */,
 				523AE0C623A73270003E7B31 /* Assets.xcassets in Resources */,
 				523AE0C423A7326D003E7B31 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5253868623AF513A00DA494C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +334,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5253868423AF513A00DA494C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5253868B23AF513A00DA494C /* RemoteAudioPlayerNodeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5253868F23AF513A00DA494C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 523AE0AA23A73243003E7B31 /* RemoteAudioPlayerNode */;
+			targetProxy = 5253868E23AF513A00DA494C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		523AE0C223A7326D003E7B31 /* Main.storyboard */ = {
@@ -497,6 +576,42 @@
 			};
 			name = Release;
 		};
+		5253869123AF513A00DA494C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N8B2B6D2KS;
+				INFOPLIST_FILE = RemoteAudioPlayerNodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fuziki.factory.RemoteAudioPlayerNodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5253869223AF513A00DA494C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N8B2B6D2KS;
+				INFOPLIST_FILE = RemoteAudioPlayerNodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fuziki.factory.RemoteAudioPlayerNodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -523,6 +638,15 @@
 			buildConfigurations = (
 				523AE0CC23A73270003E7B31 /* Debug */,
 				523AE0CD23A73270003E7B31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5253869023AF513A00DA494C /* Build configuration list for PBXNativeTarget "RemoteAudioPlayerNodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5253869123AF513A00DA494C /* Debug */,
+				5253869223AF513A00DA494C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
