@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import AVFoundation
+@testable import RemoteAudioPlayerNode
 
 class RemoteAudioPlayerNodeTests: XCTestCase {
 
@@ -21,6 +23,32 @@ class RemoteAudioPlayerNodeTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    let downloader: RemoteAudioDownloader = DefaultRemoteAudioDownloader()
+    func testDownload() {
+        let expectation = XCTestExpectation(description: "\(#function)")
+        let url = URL(string: "http://www.ne.jp/asahi/music/myuu/wave/fanfare.mp3")!
+        downloader.request(url: url, completionHandler: { (data: Data) in
+            XCTAssertEqual(data.count, 188034)
+            expectation.fulfill()
+        })
+        self.wait(for: [expectation], timeout: 10)
+    }
+    
+    let audioFileStreamServices = AudioFileStreamService()
+    func testParse() {
+        let expectation = XCTestExpectation(description: "\(#function)")
+        let url = URL(string: "http://www.ne.jp/asahi/music/myuu/wave/fanfare.mp3")!
+        downloader.request(url: url, completionHandler: { [weak self] (data: Data) in
+            self?.audioFileStreamServices
+                .parseBytes(data: data,
+                            completeHandler: { (audioFormat: AVAudioFormat, packets: [(data: Data, description: AudioStreamPacketDescription)]) in
+                                XCTAssertEqual(packets.count, 450)
+                                expectation.fulfill()
+            })
+        })
+        self.wait(for: [expectation], timeout: 10)
     }
 
     func testPerformanceExample() {
