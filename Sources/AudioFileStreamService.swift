@@ -91,6 +91,12 @@ extension AudioFileStreamService {
             if let format = AVAudioFormat(streamDescription: &description) {
                 audioFileStreamService.parsed(audioFormat: format)
             }
+        case kAudioFilePropertyFileFormat:
+            print("kAudioFilePropertyFileFormat, maybe AudioFileTypeID")
+        case kAudioFilePropertyDataOffset:
+            print("kAudioFilePropertyDataOffset, maybe SInt64")
+        case kAudioFileStreamProperty_ReadyToProducePackets:
+            print("kAudioFileStreamProperty_ReadyToProducePackets, maybe finished parse signal?")
         default:
             print("unknown propertyID \(inPropertyID)")
         }
