@@ -53,9 +53,9 @@ class ViewController: UIViewController {
         })
     }
     
-    let converter = CompressedBufferConverter()
+    var converter: CompressedBufferConverter? = nil
     private func onPackets(audioFormat: AVAudioFormat, packets: [(data: Data, description: AudioStreamPacketDescription)]) {
-        converter.setup(srcFormat: audioFormat, dstFormat: internalFormat, packets: packets)
+        converter = CompressedBufferConverter(srcFormat: audioFormat, dstFormat: internalFormat, packets: packets)
         for _ in 0..<3 {
             playScheduleBuffer()
         }
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     
     var counter: Int = 0
     func playScheduleBuffer() {
-        if let ret = converter.read(frames: 1152), ret.frameLength > 0 {
+        if let ret = converter?.read(frames: 1152), ret.frameLength > 0 {
             counter += 1
             player.scheduleBuffer(ret, completionHandler: { [weak self] in
                 self?.counter -= 1
@@ -78,16 +78,16 @@ class ViewController: UIViewController {
 }
 
 class CompressedBufferConverter {
-    private var converter: AVAudioConverter!
+    private var converter: AVAudioConverter?
 
-    private var srcFormat: AVAudioFormat!
-    private var dstFormat: AVAudioFormat!
-    private var packets: [(data: Data, description: AudioStreamPacketDescription)]!
+    private var srcFormat: AVAudioFormat
+    private var dstFormat: AVAudioFormat
+    private var packets: [(data: Data, description: AudioStreamPacketDescription)]
 
     private var index = 0
     private var audioCompressedBuffer: [AVAudioCompressedBuffer] = []
 
-    public func setup(srcFormat: AVAudioFormat, dstFormat: AVAudioFormat, packets: [(data: Data, description: AudioStreamPacketDescription)]) {
+    public init(srcFormat: AVAudioFormat, dstFormat: AVAudioFormat, packets: [(data: Data, description: AudioStreamPacketDescription)]) {
         self.converter = AVAudioConverter(from: srcFormat, to: dstFormat)
         self.srcFormat = srcFormat
         self.dstFormat = dstFormat
@@ -107,6 +107,9 @@ class CompressedBufferConverter {
     }
 
     public func read(frames: AVAudioFrameCount) -> AVAudioPCMBuffer? {
+        guard let converter = self.converter else {
+            return nil
+        }
         let pcmBuff = AVAudioPCMBuffer(pcmFormat: dstFormat, frameCapacity: frames)!
         pcmBuff.frameLength = pcmBuff.frameCapacity
 
