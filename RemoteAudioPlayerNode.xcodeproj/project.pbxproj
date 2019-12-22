@@ -15,6 +15,9 @@
 		523AE0C623A73270003E7B31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523AE0C523A73270003E7B31 /* Assets.xcassets */; };
 		523AE0C923A73270003E7B31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523AE0C723A73270003E7B31 /* LaunchScreen.storyboard */; };
 		523AE0D123AE308F003E7B31 /* AudioFileStreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */; };
+		52FAC5D023AF383900754C61 /* CompressedBufferConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */; };
+		52FAC5D223AF400D00754C61 /* RemoteAudioPlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */; };
+		52FAC5D423AF405400754C61 /* RemoteAudioDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		523AE0C823A73270003E7B31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		523AE0CA23A73270003E7B31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileStreamService.swift; sourceTree = "<group>"; };
+		52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressedBufferConverter.swift; sourceTree = "<group>"; };
+		52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAudioPlayerNode.swift; sourceTree = "<group>"; };
+		52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAudioDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,9 @@
 				523AE0BC23A7326D003E7B31 /* AppDelegate.swift */,
 				523AE0BE23A7326D003E7B31 /* SceneDelegate.swift */,
 				523AE0C023A7326D003E7B31 /* ViewController.swift */,
+				52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */,
+				52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */,
+				52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */,
 				523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */,
 				523AE0C223A7326D003E7B31 /* Main.storyboard */,
 				523AE0C523A73270003E7B31 /* Assets.xcassets */,
@@ -212,8 +221,11 @@
 			files = (
 				523AE0D123AE308F003E7B31 /* AudioFileStreamService.swift in Sources */,
 				523AE0C123A7326D003E7B31 /* ViewController.swift in Sources */,
+				52FAC5D423AF405400754C61 /* RemoteAudioDownloader.swift in Sources */,
 				523AE0BD23A7326D003E7B31 /* AppDelegate.swift in Sources */,
+				52FAC5D223AF400D00754C61 /* RemoteAudioPlayerNode.swift in Sources */,
 				523AE0BF23A7326D003E7B31 /* SceneDelegate.swift in Sources */,
+				52FAC5D023AF383900754C61 /* CompressedBufferConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

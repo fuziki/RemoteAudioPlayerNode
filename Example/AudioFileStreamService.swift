@@ -18,8 +18,8 @@ public class AudioFileStreamService {
     public init() {
         let inClientData = unsafeBitCast(self, to: UnsafeMutableRawPointer.self)
         let error = AudioFileStreamOpen(inClientData,
-                                        { (c , s, p, f) in AudioFileStreamService.propertyListenerProcedure(c , s, p, f) },
-                                        { (c, b, p, d, pd) in AudioFileStreamService.packetsProcedure(c, b, p, d, pd) },
+                                        { AudioFileStreamService.propertyListenerProcedure($0, $1, $2, $3) },
+                                        { AudioFileStreamService.packetsProcedure($0, $1, $2, $3, $4) },
                                         kAudioFileMP3Type,
                                         &streamID)
         if error != noErr {
@@ -87,7 +87,7 @@ extension AudioFileStreamService {
             if res2 != noErr {
                 print("failed AudioFileStreamGetProperty")
             }
-            print("kAudioFileStreamProperty_DataFormat \(description)")
+//            print("kAudioFileStreamProperty_DataFormat \(description)")
             if let format = AVAudioFormat(streamDescription: &description) {
                 audioFileStreamService.parsed(audioFormat: format)
             }
