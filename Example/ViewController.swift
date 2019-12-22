@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import RemoteAudioPlayerNode
 
 class ViewController: UIViewController {
     var task: URLSessionDataTask!

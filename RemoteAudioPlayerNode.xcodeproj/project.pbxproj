@@ -14,11 +14,31 @@
 		523AE0C423A7326D003E7B31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523AE0C223A7326D003E7B31 /* Main.storyboard */; };
 		523AE0C623A73270003E7B31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 523AE0C523A73270003E7B31 /* Assets.xcassets */; };
 		523AE0C923A73270003E7B31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523AE0C723A73270003E7B31 /* LaunchScreen.storyboard */; };
-		523AE0D123AE308F003E7B31 /* AudioFileStreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */; };
-		52FAC5D023AF383900754C61 /* CompressedBufferConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */; };
-		52FAC5D223AF400D00754C61 /* RemoteAudioPlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */; };
-		52FAC5D423AF405400754C61 /* RemoteAudioDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */; };
+		5253868123AF421200DA494C /* RemoteAudioPlayerNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523AE0AB23A73243003E7B31 /* RemoteAudioPlayerNode.framework */; };
+		5253868223AF421200DA494C /* RemoteAudioPlayerNode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 523AE0AB23A73243003E7B31 /* RemoteAudioPlayerNode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		52FAC5D623AF416A00754C61 /* RemoteAudioPlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */; };
+		52FAC5D723AF416A00754C61 /* RemoteAudioDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */; };
+		52FAC5D823AF416A00754C61 /* CompressedBufferConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */; };
+		52FAC5D923AF416A00754C61 /* AudioFileStreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */; };
+		52FAC5DA23AF41AA00754C61 /* RemoteAudioPlayerNode.swift in Headers */ = {isa = PBXBuildFile; fileRef = 52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		52FAC5DB23AF41AA00754C61 /* RemoteAudioDownloader.swift in Headers */ = {isa = PBXBuildFile; fileRef = 52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		52FAC5DC23AF41AA00754C61 /* CompressedBufferConverter.swift in Headers */ = {isa = PBXBuildFile; fileRef = 52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		52FAC5DD23AF41AA00754C61 /* AudioFileStreamService.swift in Headers */ = {isa = PBXBuildFile; fileRef = 523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5253868323AF421200DA494C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5253868223AF421200DA494C /* RemoteAudioPlayerNode.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		523AE0AB23A73243003E7B31 /* RemoteAudioPlayerNode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RemoteAudioPlayerNode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5253868123AF421200DA494C /* RemoteAudioPlayerNode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,9 +80,11 @@
 		523AE0A123A73243003E7B31 = {
 			isa = PBXGroup;
 			children = (
+				52FAC5D523AF413900754C61 /* Sources */,
 				523AE0AD23A73243003E7B31 /* RemoteAudioPlayerNode */,
 				523AE0BB23A7326D003E7B31 /* Example */,
 				523AE0AC23A73243003E7B31 /* Products */,
+				5253867F23AF420A00DA494C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,16 +112,30 @@
 				523AE0BC23A7326D003E7B31 /* AppDelegate.swift */,
 				523AE0BE23A7326D003E7B31 /* SceneDelegate.swift */,
 				523AE0C023A7326D003E7B31 /* ViewController.swift */,
-				52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */,
-				52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */,
-				52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */,
-				523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */,
 				523AE0C223A7326D003E7B31 /* Main.storyboard */,
 				523AE0C523A73270003E7B31 /* Assets.xcassets */,
 				523AE0C723A73270003E7B31 /* LaunchScreen.storyboard */,
 				523AE0CA23A73270003E7B31 /* Info.plist */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		5253867F23AF420A00DA494C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52FAC5D523AF413900754C61 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				52FAC5D123AF400D00754C61 /* RemoteAudioPlayerNode.swift */,
+				52FAC5D323AF405400754C61 /* RemoteAudioDownloader.swift */,
+				52FAC5CF23AF383900754C61 /* CompressedBufferConverter.swift */,
+				523AE0D023AE308F003E7B31 /* AudioFileStreamService.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +146,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				523AE0B023A73243003E7B31 /* RemoteAudioPlayerNode.h in Headers */,
+				52FAC5DA23AF41AA00754C61 /* RemoteAudioPlayerNode.swift in Headers */,
+				52FAC5DB23AF41AA00754C61 /* RemoteAudioDownloader.swift in Headers */,
+				52FAC5DC23AF41AA00754C61 /* CompressedBufferConverter.swift in Headers */,
+				52FAC5DD23AF41AA00754C61 /* AudioFileStreamService.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +181,7 @@
 				523AE0B623A7326D003E7B31 /* Sources */,
 				523AE0B723A7326D003E7B31 /* Frameworks */,
 				523AE0B823A7326D003E7B31 /* Resources */,
+				5253868323AF421200DA494C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +254,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FAC5D623AF416A00754C61 /* RemoteAudioPlayerNode.swift in Sources */,
+				52FAC5D723AF416A00754C61 /* RemoteAudioDownloader.swift in Sources */,
+				52FAC5D823AF416A00754C61 /* CompressedBufferConverter.swift in Sources */,
+				52FAC5D923AF416A00754C61 /* AudioFileStreamService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,13 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				523AE0D123AE308F003E7B31 /* AudioFileStreamService.swift in Sources */,
 				523AE0C123A7326D003E7B31 /* ViewController.swift in Sources */,
-				52FAC5D423AF405400754C61 /* RemoteAudioDownloader.swift in Sources */,
 				523AE0BD23A7326D003E7B31 /* AppDelegate.swift in Sources */,
-				52FAC5D223AF400D00754C61 /* RemoteAudioPlayerNode.swift in Sources */,
 				523AE0BF23A7326D003E7B31 /* SceneDelegate.swift in Sources */,
-				52FAC5D023AF383900754C61 /* CompressedBufferConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
