@@ -10,7 +10,7 @@ func routes(_ app: Application) throws {
         return "Hello, world!"
     }
     
-    app.on(endpoint: FileListEndpoint.self) { (req: FileListEndpoint.Request) -> FileListEndpoint.Response in
+    app.on(endpoint: FileListEndpoint.self) { (req: FileListEndpoint.Request) in
         let fileList: [String] = (0..<req.expect).map { _ in UUID().uuidString }
         return FileListEndpoint.Response(fileList: fileList)
     }
