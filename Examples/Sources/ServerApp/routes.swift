@@ -1,4 +1,4 @@
-import SharedClientServer
+import EndpointInterface
 import Vapor
 
 func routes(_ app: Application) throws {

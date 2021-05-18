@@ -6,16 +6,13 @@
 //
 
 import Foundation
-
-public enum HttpMethod: String {
-    case post = "POST"
-}
+import NIOHTTP1
 
 public protocol EndpointInterface {
     associatedtype Request: Codable
     associatedtype Response: Codable
     static var path: String { get }
-    static var method: HttpMethod { get }
+    static var method: HTTPMethod { get }
 }
 
 public struct FileListEndpoint: EndpointInterface {
@@ -32,5 +29,5 @@ public struct FileListEndpoint: EndpointInterface {
         }
     }
     public static var path: String = "file_lsit"
-    public static var method: HttpMethod = .post
+    public static var method: HTTPMethod = .POST
 }
