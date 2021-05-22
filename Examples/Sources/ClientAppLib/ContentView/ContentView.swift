@@ -35,7 +35,7 @@ extension ContentView {
             reducer: contentReducer,
             environment: ContentEnvironment(
                 mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                fileListApi: FileListApi(expect: 5),
+                endpointClient: DefaultEndpointClient(),
                 audioEngineService: DefaultAudioEngineService()
             )
         )
@@ -50,7 +50,7 @@ struct ContentView_Previews: PreviewProvider {
             reducer: contentReducer,
             environment: ContentEnvironment(
                 mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
-                fileListApi: FileListApi(expect: 5),
+                endpointClient: DefaultEndpointClient(),
                 audioEngineService: AudioEngineServiceMock()
             )
         ))
