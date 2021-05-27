@@ -5,12 +5,12 @@
 //  Created by fuziki on 2021/05/17.
 //
 
-import SharedClientServer
+import EndpointInterface
 import Vapor
 
 extension Application {
     public func on<T: EndpointInterface>(endpoint: T.Type, use closure: @escaping ((T.Request) -> T.Response)) {
-        self.on(.POST, PathComponent(stringLiteral: T.path)) { (req: Request) -> ClientResponse in
+        self.on(T.method, PathComponent(stringLiteral: T.path)) { (req: Request) -> ClientResponse in
             let content = try req.content.decode(T.Request.self, using: JSONDecoder())
             let res = closure(content)
             let data = try JSONEncoder().encode(res)

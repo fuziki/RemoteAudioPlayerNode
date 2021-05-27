@@ -7,12 +7,14 @@
 
 import Combine
 import Foundation
-import SharedClientServer
+import EndpointInterface
+import NIOHTTP1
 
 protocol Api {
     associatedtype Request: Codable
     associatedtype Response: Codable
     static var url: URL { get }
+    static var method: HTTPMethod { get }
     var requestBody: Request? { get }
     func request() -> AnyPublisher<Response, Error>
 }
@@ -21,7 +23,7 @@ extension Api {
     func request() -> AnyPublisher<Response, Error> {
         var req = URLRequest(url: Self.url)
         req.httpBody = requestBody.flatMap { try? JSONEncoder().encode($0) }
-        req.httpMethod = "POST"
+        req.httpMethod = Self.method.rawValue
         return URLSession.shared
             .dataTaskPublisher(for: req)
             .tryMap { (output: URLSession.DataTaskPublisher.Output) -> Data in
@@ -47,6 +49,9 @@ extension EndpointApi {
 extension EndpointApi {
     static var url: URL {
         return base.appendingPathComponent(Endpoint.path)
+    }
+    static var method: HTTPMethod {
+        return Endpoint.method
     }
 }
 
