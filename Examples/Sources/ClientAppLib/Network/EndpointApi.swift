@@ -13,17 +13,17 @@ import NIOHTTP1
 protocol Api {
     associatedtype Request: Codable
     associatedtype Response: Codable
-    static var url: URL { get }
-    static var method: HTTPMethod { get }
+    var url: URL { get }
+    var method: HTTPMethod { get }
     var requestBody: Request? { get }
     func request() -> AnyPublisher<Response, Error>
 }
 
 extension Api {
     func request() -> AnyPublisher<Response, Error> {
-        var req = URLRequest(url: Self.url)
+        var req = URLRequest(url: url)
         req.httpBody = requestBody.flatMap { try? JSONEncoder().encode($0) }
-        req.httpMethod = Self.method.rawValue
+        req.httpMethod = method.rawValue
         return URLSession.shared
             .dataTaskPublisher(for: req)
             .tryMap { (output: URLSession.DataTaskPublisher.Output) -> Data in
@@ -37,32 +37,21 @@ extension Api {
     }
 }
 
-protocol EndpointApi: Api where Request == Endpoint.Request, Response == Endpoint.Response {
-    associatedtype Endpoint: EndpointInterface
-    static var base: URL { get }
-}
-
-extension EndpointApi {
-    static var base: URL { URL(string: "http://127.0.0.1:8080")! }
-}
-
-extension EndpointApi {
-    static var url: URL {
-        return base.appendingPathComponent(Endpoint.path)
-    }
-    static var method: HTTPMethod {
-        return Endpoint.method
-    }
-}
-
-struct FileListApi: EndpointApi {
-    typealias Request = FileListEndpoint.Request
-    typealias Response = FileListEndpoint.Response
-
-    typealias Endpoint = FileListEndpoint
-    
+struct EndpointApi<Request: Codable, Response: Codable>: Api {
+    let url: URL
+    let method: HTTPMethod
     let requestBody: Request?
-    init(expect: Int) {
-        self.requestBody = .init(expect: expect)
+}
+
+protocol EndpointClient {
+    func request<T: EndpointInterface>(interface: T.Type, body: T.Request?) -> AnyPublisher<T.Response, Error>
+}
+
+class DefaultEndpointClient: EndpointClient {
+    func request<T: EndpointInterface>(interface: T.Type, body: T.Request?) -> AnyPublisher<T.Response, Error> {
+        let url = URL(string: "http://127.0.0.1:8080")!
+            .appendingPathComponent(interface.path)
+        return EndpointApi(url: url, method: interface.method, requestBody: body)
+            .request()
     }
 }

@@ -20,6 +20,7 @@ let package = Package(
         .package(name: "RemoteAudioPlayerNode", path: "../"),
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.29.0"),
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "0.18.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -35,7 +36,12 @@ let package = Package(
         // MARK:- Client
         .target(
             name: "ClientAppLib",
-            dependencies: ["RemoteAudioPlayerNode", "EndpointInterface"]),
+            dependencies: [
+                .product(name: "RemoteAudioPlayerNode", package: "RemoteAudioPlayerNode"),
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+                .target(name: "EndpointInterface"),
+            ]
+        ),
 
         // MARK:- Server
         .target(

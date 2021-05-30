@@ -11,7 +11,7 @@ func routes(_ app: Application) throws {
     }
     
     app.on(endpoint: FileListEndpoint.self) { (req: FileListEndpoint.Request) in
-        let fileList: [String] = (0..<req.expect).map { _ in UUID().uuidString }
+        let fileList: [String] = db().fileList.prefix(req.expect).map { $0 }
         return FileListEndpoint.Response(fileList: fileList)
     }
     
